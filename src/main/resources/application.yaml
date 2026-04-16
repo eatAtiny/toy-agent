@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: toy-agent
+    port: 8080
+  profiles:
+    include: secret
+
+langchain4j:
+  openai:
+    base-url: https://api.hunyuan.cloud.tencent.com/v1
+    model-name: hunyuan-turbos-latest
+    api-key: ${secret:langchain4j.openai.api-key}
+    log-requests: true
+    log-responses: true
+
+baidu:
+  mcp:
+    web-search:
+      url: https://qianfan.baidubce.com/v2/tools/web-search/mcp
+      api-key: ${secret:baidu.mcp.web-search.api-key}
