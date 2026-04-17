@@ -16,5 +16,5 @@ langchain4j:
 baidu:
   mcp:
     web-search:
-      url: https://qianfan.baidubce.com/v2/tools/web-search/mcp
-      api-key: ${secret:baidu.mcp.web-search.api-key}
+
+

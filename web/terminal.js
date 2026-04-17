@@ -216,10 +216,10 @@ class TerminalApp {
   一个现代化的终端界面，用于与 AI 代理交互
   
   ${green}可用命令:${reset}
-    ${cyan}\\agent${reset}  - 切换到代理模式
-    ${cyan}\\exit${reset}   - 退出代理模式，返回终端模式
-    ${cyan}help${reset}    - 显示此帮助信息
-    ${cyan}clear${reset}   - 清空终端屏幕
+    ${cyan}/agent${reset}        - 切换到代理模式
+    ${cyan}/exit or /q${reset}   - 退出代理模式，返回终端模式
+    ${cyan}help${reset}          - 显示此帮助信息
+    ${cyan}clear${reset}         - 清空终端屏幕
 
 `;
         this.term.write(welcomeText);
@@ -235,10 +235,10 @@ class TerminalApp {
         const helpText = `
   ${yellow}可用命令${reset}
   
-    ${cyan}\\agent${reset}  - 切换到代理模式
-    ${cyan}\\exit${reset}   - 退出代理模式，返回终端模式
-    ${cyan}help${reset}    - 显示此帮助信息
-    ${cyan}clear${reset}   - 清空终端屏幕
+    ${cyan}/agent${reset}        - 切换到代理模式
+    ${cyan}/exit or /q${reset}   - 退出代理模式，返回终端模式
+    ${cyan}help${reset}          - 显示此帮助信息
+    ${cyan}clear${reset}         - 清空终端屏幕
     
   ${green}终端模式:${reset}
     直接输入命令执行，如: pwd, ls, etc.
@@ -253,13 +253,13 @@ class TerminalApp {
     async executeCommand(command) {
         const trimCmd = command.trim();
         
-        if (trimCmd === '\\agent') {
+        if (trimCmd === '/agent') {
             this.switchToAgentMode();
             this.showPrompt();
             return;
         }
         
-        if (trimCmd === '\\exit') {
+        if (trimCmd === '/exit' || trimCmd === '/q') {
             this.switchToTerminalMode();
             this.showPrompt();
             return;
