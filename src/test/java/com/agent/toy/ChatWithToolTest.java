@@ -23,7 +23,7 @@ public class ChatWithToolTest {
 
     @Test
     public void chatWithTool(){
-        String result = chatService.chat("帮我看看当前文件路径");
+        String result = chatService.chat("南京今天的天气怎么样");
         System.out.println(result);
     }
 

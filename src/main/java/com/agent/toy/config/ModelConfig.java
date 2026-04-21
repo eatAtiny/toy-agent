@@ -11,11 +11,11 @@ import java.time.Duration;
 @Configuration
 public class ModelConfig {
     
-    @Value("${langchain4j.openai.base-url}")
+    @Value("${langchain4j.qianwen.base-url}")
     private String baseUrl;
-    @Value("${langchain4j.openai.api-key}")
+    @Value("${langchain4j.qianwen.api-key}")
     private String apiKey;
-    @Value("${langchain4j.openai.model-name}")
+    @Value("${langchain4j.qianwen.model-name}")
     private String modelName;
 
     @Bean

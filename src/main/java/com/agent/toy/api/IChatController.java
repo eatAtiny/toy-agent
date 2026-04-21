@@ -5,7 +5,7 @@ import com.agent.toy.api.dto.ChatRequest;
 
 public interface IChatController {
 
-    ApiResponse<String> chat(ChatRequest chatRequest);
+    ApiResponse<String> ask(ChatRequest chatRequest);
 
     ApiResponse<String> command(String command);
 }

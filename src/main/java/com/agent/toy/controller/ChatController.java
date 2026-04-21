@@ -2,6 +2,7 @@ package com.agent.toy.controller;
 
 import com.agent.toy.api.dto.ApiResponse;
 import com.agent.toy.api.dto.ChatRequest;
+import com.agent.toy.service.AgentService;
 import com.agent.toy.service.ChatService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,8 @@ public class ChatController {
 
     @Autowired
     public ChatService chatService;
+    @Autowired
+    private AgentService agentService;
 
     /**
      * 处理聊天请求
@@ -22,10 +25,16 @@ public class ChatController {
      * 包含用户消息、对话历史ID和模型名称
      * @return ApiResponse 包含AI助手回复的响应
      */
-    @PostMapping("/chat")
+    @PostMapping("/ask")
     @ResponseBody
-    public ApiResponse<String> chat(@RequestBody ChatRequest chatRequest) {
+    public ApiResponse<String> ask(@RequestBody ChatRequest chatRequest) {
         return ApiResponse.success(chatService.chat(chatRequest.getMessage()));
+    }
+
+    @PostMapping("/agent")
+    @ResponseBody
+    public ApiResponse<String> agent(@RequestBody ChatRequest chatRequest) {
+        return ApiResponse.success(agentService.processTask(chatRequest.getMessage()));
     }
 
     /**

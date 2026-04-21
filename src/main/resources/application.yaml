@@ -6,15 +6,30 @@ spring:
     include: secret
 
 langchain4j:
-  openai:
+  hunyuan:
     base-url: https://api.hunyuan.cloud.tencent.com/v1
     model-name: hunyuan-turbos-latest
-    api-key: ${secret:langchain4j.openai.api-key}
-    log-requests: true
-    log-responses: true
+    api-key: ${secret:langchain4j.hunyuan.api-key}
+  nvidia:
+    base-url: https://integrate.api.nvidia.com/v1
+    model-name: z-ai/glm-5.1
+    api-key: ${secret:langchain4j.nvidia.api-key}
+  huoshan:
+    base-url: https://ark.cn-beijing.volces.com/api/v3
+    model-name: doubao-seed-2-0-mini-260215
+    api-key: ${secret:langchain4j.nvidia.api-key}
+  qianwen:
+    base-url: https://dashscope.aliyuncs.com/compatible-mode/v1
+    model-name: qwen3.5-plus-2026-02-15
+    api-key: ${secret:langchain4j.qianwen.api-key}
 
 baidu:
   mcp:
+    ai-search:
+      url: https://qianfan.baidubce.com/v2/ai_search/mcp
+      api-key: ${secret:baidu.mcp.ai-search.api-key}
     web-search:
+      url: https://qianfan.baidubce.com/v2/ai_search/web_search
+      api-key: ${secret:baidu.mcp.ai-search.api-key}
 
 
